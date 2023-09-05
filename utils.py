@@ -78,7 +78,7 @@ class DataFrameFeatures(BaseEstimator, TransformerMixin):
         for cat in self.cat_cols:
             all_labels, labels = self._cat_mapping[cat]
             self.check_categorial_labels(cat, all_labels, X[cat].unique())
-            one_hot = np.zeros((X.shape[0], len(labels)), dtype=np.int)
+            one_hot = np.zeros((X.shape[0], len(labels)), dtype=np.int_)
             for i, label in enumerate(labels):
                 one_hot[:, i] = X[cat] == label
             arr = np.concatenate([arr, one_hot], axis=1)
